@@ -18,8 +18,8 @@ class Timer {
         bool stopped;
 #ifdef WIN32
         LARGE_INTEGER start_time;
-        LRGE_INTEGER end_time;
-        LARGE_INTEGER frequency
+        LARGE_INTEGER end_time;
+        LARGE_INTEGER frequency;
 #else
         timeval start_time;
         timeval end_time;

@@ -1,9 +1,10 @@
 // Mandlebrot.cpp - fractal generator
 #include "Mandlebrot.h"
+#include "complex.h"
 #include <iostream>
 using namespace std;
 
-Mandlebrot::Mandlebrot() {
+Mandlebrot::Mandlebrot() {		//setting up the default constructor height/width
     IMAGE_WIDTH = 1;
     IMAGE_HEIGHT = 1;
 }
@@ -17,8 +18,8 @@ void Mandlebrot::init( int w, int h ) {
     xOff = 0;
     yOff = 0;
     scale = 0.75;
-    IMAGE_HEIGHT = h;
-    IMAGE_WIDTH = w;
+    IMAGE_HEIGHT = h;		//defines variables for function in init taken from default constructor
+    IMAGE_WIDTH = w;		// "^"
     pixelHeight = (yMax - yMin ) / IMAGE_HEIGHT;
     pixelWidth = (xMax - xMin ) / IMAGE_WIDTH;
     bitmap = nullptr;
@@ -38,14 +39,14 @@ int Mandlebrot::pixelValue( double x, double y ) {
     z = Complex( x, y );
     c = Complex( x, y );
     z = z * z + c;
-    zmag = z.magnitude();
+    zmag = z.magnitude(); 	//changed to abs
     int i = 0;
     for( i = 0; i < max_iterations; i++ ) {
         if( zmag > 2.0 ) {
             break;
         }
         z = z * z + c;
-        zmag = z.magnitude();
+        zmag = z.magnitude();	//changed to abs
     }
     return i;
 }

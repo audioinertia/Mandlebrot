@@ -6,5 +6,5 @@
 #elif defined (__linux__)
     #include <GL/glut.h>
 #elif defined (_WIN32)
-    #include <GLUT/gl.h>
+    #include "gl.h"  //made a shortcut in includes for my file....seems to work
 #endif
